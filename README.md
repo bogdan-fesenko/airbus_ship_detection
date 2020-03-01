@@ -49,3 +49,10 @@ Visualize both train and test images prediction using ShipSegmentor class.
 ship_segmentator.visualize_ship_segmentation(n_images=16, is_train=False, shuffle=True)
 ```
 
+### TODO
+ - Train fullsize input classifier and segmentation network for 30+ hours will give 0.72+ public score.
+ - With longer trained classifier we need train segmentation network with freezed encoder longer. Also with better classifier we can reduce 'no ship' images in dataset while training segmentation network for better performance and faster training. 
+ - Also it's better to tune 'ship'/'no ship' images ratio using smaller crops and resnet18 as a simplified task for time saving.
+ - For better augmentation we can try train IRNet ([https://github.com/jiwoon-ahn/irn](https://github.com/jiwoon-ahn/irn))  or other network for obtaining accurate ship segmentaiton masks (instead of rectangular). Then cut ships using this masks and past on 'no ship' images as a backgroung because we can assume we have 2d objects. This type of augmentation can make dataset much richer. Also then we can make more samples with close ships for better splitting of them.
+ -  It was also found that in this task, the Adam optimizer often accumulates too much momentum, since after several epochs the error began to rise. This was solved by restarting the optimizer to reset the momentum which helps, but it might be better to configure the SGD optimizer.
+ - Pseudo-labeling 
