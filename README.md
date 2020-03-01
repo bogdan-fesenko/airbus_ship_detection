@@ -1,5 +1,3 @@
-# airbus_ship_detection
-
 # Airbus ship detection
 
 
@@ -14,6 +12,7 @@ Since predicting at least one pixel as a ship in an image without ships, we get 
 |Private score| Public score |
 |--|--|
 | 0.82353 |  0.68276|
+
 This was achieved with training segmentation network for only ~400k images at total and having classifier with 97.5% accuracy only (256x256 resized prediction)
 
 ### Prerequisites
